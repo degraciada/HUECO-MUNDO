@@ -1,0 +1,190 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background: #f4f1e8;
+}
+
+body {
+    margin: 0;
+    background: #f4f1e8;
+    color: #111;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+/*
+    A página não usa uma grade convencional.
+    Cada arte recebe sua própria posição e largura.
+    É aqui que você pode brincar com a composição.
+*/
+
+.gallery {
+    position: relative;
+    width: 100%;
+    min-height: 7800px;
+    padding: 0;
+}
+
+.art {
+    position: absolute;
+    margin: 0;
+    line-height: 0;
+    cursor: zoom-in;
+}
+
+.art img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: none;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+/* ---------- composição desktop ---------- */
+
+.art01 {
+    width: 37vw;
+    max-width: 650px;
+    left: 5vw;
+    top: 5vh;
+}
+
+.art02 {
+    width: 34vw;
+    max-width: 610px;
+    right: 7vw;
+    top: 580px;
+}
+
+.art03 {
+    width: 42vw;
+    max-width: 760px;
+    left: 29vw;
+    top: 1250px;
+}
+
+.art04 {
+    width: 38vw;
+    max-width: 690px;
+    left: 3vw;
+    top: 2050px;
+}
+
+.art05 {
+    width: 31vw;
+    max-width: 560px;
+    right: 8vw;
+    top: 2500px;
+}
+
+.art06 {
+    width: 45vw;
+    max-width: 810px;
+    left: 23vw;
+    top: 3300px;
+}
+
+.art07 {
+    width: 30vw;
+    max-width: 540px;
+    left: 5vw;
+    top: 4200px;
+}
+
+.art08 {
+    width: 35vw;
+    max-width: 630px;
+    right: 6vw;
+    top: 4550px;
+}
+
+.art09 {
+    width: 43vw;
+    max-width: 770px;
+    left: 30vw;
+    top: 5350px;
+}
+
+.art10 {
+    width: 32vw;
+    max-width: 580px;
+    left: 7vw;
+    top: 6500px;
+}
+
+/* ---------- imagem ampliada ---------- */
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3vh 3vw;
+    background: rgba(0, 0, 0, .88);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .15s ease;
+    cursor: zoom-out;
+}
+
+.lightbox.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox img {
+    max-width: 94vw;
+    max-height: 94vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+.close {
+    position: fixed;
+    top: 12px;
+    right: 20px;
+    z-index: 101;
+    border: 0;
+    background: transparent;
+    color: white;
+    font-size: 42px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+/* ---------- celular ---------- */
+
+@media (max-width: 700px) {
+    .gallery {
+        min-height: auto;
+        padding: 8vh 5vw 15vh;
+    }
+
+    .art,
+    .art01, .art02, .art03, .art04, .art05,
+    .art06, .art07, .art08, .art09, .art10 {
+        position: relative;
+        width: 100%;
+        max-width: none;
+        left: auto;
+        right: auto;
+        top: auto;
+        margin: 0 0 18vh;
+    }
+
+    .art:nth-child(even) {
+        margin-left: 4vw;
+        width: 92%;
+    }
+
+    .art:nth-child(3n) {
+        margin-left: -2vw;
+        width: 104%;
+    }
+}

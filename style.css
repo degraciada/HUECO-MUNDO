@@ -1,3 +1,4 @@
+```css
 * {
     box-sizing: border-box;
 }
@@ -14,6 +15,20 @@ body {
     overflow-x: hidden;
 }
 
+/* ---------- fundo GIF ---------- */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background-image: url("images/background-rosto.gif");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    pointer-events: none;
+}
+
 /*
     A página não usa uma grade convencional.
     Cada arte recebe sua própria posição e largura.
@@ -22,6 +37,7 @@ body {
 
 .gallery {
     position: relative;
+    z-index: 1;
     width: 100%;
     min-height: 7800px;
     padding: 0;
@@ -188,3 +204,5 @@ body {
         width: 104%;
     }
 }
+```
+
